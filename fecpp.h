@@ -12,7 +12,7 @@
 
 #include <map>
 #include <vector>
-#include <tr1/functional>
+#include <functional>
 
 namespace fecpp {
 

@@ -1,4 +1,4 @@
-#include "fecpp.h"
+#include "../fecpp.h"
 #include <stdio.h>
 #include <string.h>
 

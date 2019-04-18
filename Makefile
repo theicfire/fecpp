@@ -34,9 +34,6 @@ test_recovery: test/test_recovery.o libfecpp.a
 gen_test_vec: test/gen_test_vec.o libfecpp.a
 	$(CC) $(CFLAGS) $< -L. -lfecpp -o $@
 
-fecpp.so: fecpp.cpp fecpp_python.cpp fecpp.h
-	$(CC) -shared -fPIC $(CFLAGS) `pkg-config --cflags python` fecpp.cpp fecpp_python.cpp `pkg-config --libs python` -lboost_python -o fecpp.so
-
 clean:
 	rm -f fecpp.so *.a *.o test/*.o
 	rm -f $(PROGS)
