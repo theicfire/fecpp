@@ -1,4 +1,17 @@
+# Note about building a library in Visual Studio
+The vs2017 branch should work in Visual Studio 2017 (and probably 2019). Just go to file -> new -> from existing solution.
 
+As of writing, the master of fecpp is a bit broken, so this reverts some changes and adds some too.
+This random blurb may help:
+* I needed to run https://stackoverflow.com/questions/42777424/visual-studio-2017-errors-on-standard-headers
+	* installed headers (CRT SDK checkbox) (Maybe not needed?)
+	* changed SDK version
+	* had to then do project->retarget solution
+* To build as a static library:
+	* top bar, pick Release and x64
+	* project->fecpp properties->application type should be static library
+
+# Original README
 FECpp: Erasure codes based on Vandermonde matrices
 
 FECpp contains an implementation of an encoder/decoder for an erasure
