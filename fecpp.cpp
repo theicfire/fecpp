@@ -1115,7 +1115,7 @@ fec_code::fec_code(size_t K_arg, size_t N_arg) :
 */
 void fec_code::encode(
    const byte input[], size_t size,
-   std::tr1::function<void (size_t, size_t, const byte[], size_t)> output)
+   std::function<void (size_t, size_t, const byte[], size_t)> output)
    const
    {
    if(size % K != 0)
@@ -1170,7 +1170,7 @@ void fec_code::encode(
 void fec_code::decode(
    const std::map<size_t, const byte*>& shares,
    size_t share_size,
-   std::tr1::function<void (size_t, size_t, const byte[], size_t)> output) const
+   std::function<void (size_t, size_t, const byte[], size_t)> output) const
    {
    /*
    Todo:

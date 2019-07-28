@@ -1,5 +1,5 @@
 
-CC=g++
+CC=clang++ -std=c++11 -stdlib=libc++
 WARNINGS= -Wall -Wextra
 OPTFLAGS=-O2 -march=native
 DEBUGFLAGS=-g
@@ -35,7 +35,7 @@ gen_test_vec: test/gen_test_vec.o libfecpp.a
 	$(CC) $(CFLAGS) $< -L. -lfecpp -o $@
 
 fecpp.so: fecpp.cpp fecpp_python.cpp fecpp.h
-	$(CC) -shared -fPIC $(CFLAGS) `pkg-config --cflags python` fecpp.cpp fecpp_python.cpp `pkg-config --libs python` -lboost_python -o fecpp.so
+	$(CC) -shared -fPIC $(CFLAGS) `pkg-config --cflags python` fecpp.cpp fecpp_python.cpp `pkg-config --libs python` -lboost_python27 -o fecpp.so
 
 clean:
 	rm -f fecpp.so *.a *.o test/*.o
