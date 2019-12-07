@@ -1,7 +1,7 @@
 
 CC=clang++ -std=c++11 -stdlib=libc++
 WARNINGS= -Wall -Wextra
-OPTFLAGS=-O2 -march=native
+OPTFLAGS=-O2 -march=sandybridge
 DEBUGFLAGS=-g
 
 CFLAGS=$(OPTFLAGS) $(DEBUGFLAGS) $(WARNINGS)
