@@ -1,14 +1,14 @@
 
 CC=clang++ -std=c++11 -stdlib=libc++
 WARNINGS= -Wall -Wextra
-OPTFLAGS=-O2 -march=sandybridge
+OPTFLAGS=-O2 -march=nehalem
 DEBUGFLAGS=-g
 
 CFLAGS=$(OPTFLAGS) $(DEBUGFLAGS) $(WARNINGS)
 
 PROGS = benchmark zfec test_recovery gen_test_vec
 
-all: fecpp.so $(PROGS)
+all: $(PROGS)
 
 libfecpp.a: fecpp.o
 	ar crs $@ $<
@@ -33,9 +33,6 @@ test_recovery: test/test_recovery.o libfecpp.a
 
 gen_test_vec: test/gen_test_vec.o libfecpp.a
 	$(CC) $(CFLAGS) $< -L. -lfecpp -o $@
-
-fecpp.so: fecpp.cpp fecpp_python.cpp fecpp.h
-	$(CC) -shared -fPIC $(CFLAGS) `pkg-config --cflags python` fecpp.cpp fecpp_python.cpp `pkg-config --libs python` -lboost_python27 -o fecpp.so
 
 clean:
 	rm -f fecpp.so *.a *.o test/*.o
